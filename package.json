@@ -1,0 +1,23 @@
+{
+  "name": "berik",
+  "version": "1.0.0",
+  "description": "Учебный проект по компонентам",
+  "main": "index.js",
+  "dependencies": {
+    "node-static": "^0.7.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/btaspikhov/components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/btaspikhov/components/issues"
+  },
+  "homepage": "https://github.com/btaspikhov/components#readme"
+}
