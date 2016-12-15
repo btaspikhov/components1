@@ -4,6 +4,7 @@
   "description": "Учебный проект по компонентам",
   "main": "index.js",
   "dependencies": {
+    "jshint": "^2.9.4",
     "node-static": "^0.7.9"
   },
   "devDependencies": {},

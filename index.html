@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Компонентный подход</title>
   <meta charset="UTF-8">
-  <title>Компонентный подход1</title>
-  <link rel="stylesheet" href="./blocks/menu/menu.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./components/menu/menu.css">
+  <link rel="stylesheet" href="./libs/skeleton/skeleton.css">
+  <link rel="stylesheet" href="./components/app/app.css">
+  <link rel="stylesheet" href="./components/form/form.css">
 </head>
 <body>
-	<div class="menu">
-		<div class="menu__title">Меню</div>
-    <ul class="menu__list">
-      <li class="menu__item">Элемент 1</li>
-      <li class="menu__item">Элемент 2</li>
-      <li class="menu__item">Элемент 3</li>
-      <li class="menu__item">Элемент 4</li>
-      <li class="menu__item">Элемент 5</li>
-    </ul>
-	</div>
+  <div class="app">
 
-  <script src="./blocks/menu/menu.js"></script>
-  <script src="./main.js"></script>
+  	<div class="js-menu"></div>
+  	<div class="js-form"></div>
+
+  </div>
+
+
+  <!-- Dependencies -->
+  <script type="text/javascript" src="./components/form/form.js"></script>
+  <script type="text/javascript" src="./components/menu/menu.js"></script>
+
+  <!-- Application -->
+  <script type="text/javascript" src="./components/app/app.js"></script>
+
+</body>
+</html>
 
 </body>
 </html>
