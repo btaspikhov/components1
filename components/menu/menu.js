@@ -75,7 +75,7 @@
      * Развешиваем события
      */
     _initEvents() {
-      this.el.addEventListener('submit', this._onClick);
+      this.el.addEventListener('click', this._onClick);
     }
 
     /**
@@ -118,7 +118,6 @@
     _onClick(event) {
       event.preventDefault();
       let item = event.target;
-
       switch (item.dataset.action) {
         case 'remove':
           this._onRemoveClick(item);

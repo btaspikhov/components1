@@ -12,9 +12,9 @@
     constructor({el, onSubmit}) {
       this.el = el;
       this.onSubmit = onSubmit;
-      this.form = this.el.querySelector('form');
 
       this.render();
+      this.form = this.el.querySelector('.form');
       this._initEvents();
     }
 
@@ -23,7 +23,7 @@
      */
     render() {
       this.el.innerHTML = `
-      <form class="form" action="action_page.php">
+      <form class="form" action="">
         <input class="form__input"  type="text" name="href" placeholder="href" value="">
         <input class="form__input" type="text" name="anchor"
         placeholder="anchor" value="">
