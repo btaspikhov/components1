@@ -8,7 +8,7 @@
   let menu = new Menu({
     el: document.querySelector('.js-menu'),
     data: {
-      title: 'Меню',
+      title: 'Мен222ю',
       items: [
         {
           href: 'https://vk.com',

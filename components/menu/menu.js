@@ -27,7 +27,7 @@
      */
     render() {
 
-      this.el.innerHTML = this.tmpl();
+      this.el.innerHTML = this.tmpl(this.data);
       /*
       function getMenuItems (items) {
 				return items.map((item, index) => {

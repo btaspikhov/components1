@@ -1,6 +1,8 @@
 div.menu
-  span.menu__title Заголовок
+  span.menu__title=title
   ul.menu__list
-    li.menu__item(data-index="0")
-      a(href="mail.ru" data-action="pick") Сайт
-      i.close(data-action="remove")
+    each item, index in items
+      li.menu__item(data-index=index)
+        a(href=item.href data-action="pick")=item.anchor
+        details(data-action="showDetails")=item.details
+        i.close(data-action="remove")
