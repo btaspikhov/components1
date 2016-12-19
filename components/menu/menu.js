@@ -1,5 +1,9 @@
 (function() {
   'use strict';
+
+  //import
+  let tmpl = window.menuTmpl;
+
   /**
    * @class Menu
    * Компонента "Меню"
@@ -12,6 +16,7 @@
     constructor({el, data}) {
       this.el = el;
       this.data = data;
+      this.tmpl = tmpl;
       this._onClick = this._onClick.bind(this);
 
       this.render();
@@ -21,6 +26,9 @@
      * Отрисовка меню
      */
     render() {
+
+      this.el.innerHTML = this.tmpl();
+      /*
       function getMenuItems (items) {
 				return items.map((item, index) => {
 					return `<li class="menu__item" data-index="${index}">
@@ -43,6 +51,7 @@
 						</ul>
 					</div>
 			`;
+      */
     }
 
     /**
