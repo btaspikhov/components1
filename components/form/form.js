@@ -13,13 +13,11 @@
      * @constructor
      * @param  {Object} options
      */
-    constructor({el, onSubmit}) {
+    constructor({el}) {
       this.el = el;
-      this.onSubmit = onSubmit;
       this.tmpl = tmpl;
 
       this.render();
-      this.form = this.el.querySelector('.form');
       this._initEvents();
     }
 
@@ -28,16 +26,6 @@
      */
     render() {
       this.el.innerHTML = this.tmpl();
-      // `
-      // <form class="form" action="">
-      //   <input class="form__input"  type="text" name="href" placeholder="href" value="">
-      //   <input class="form__input" type="text" name="anchor"
-      //   placeholder="anchor" value="">
-      //   <input class="form__input" type="text" name="details"
-      //   placeholder="details" value="">
-      //   <input class="form__submit" type="submit" value="Submit">
-      // </form>
-			// `;
     }
 
     /**
@@ -61,6 +49,29 @@
     }
 
     /**
+     * Подписка на событие
+     * @param {string} name
+     * @param {Function} callback
+     */
+    on (name, callback) {
+      this.el.addEventListener(name, callback);
+    }
+
+    /**
+     * Создание и запуск события
+     * @param {string} name
+     * @param {Object} data
+     */
+    trigger (name, data) {
+      let event = new CustomEvent(name, {
+        bubbles: true,
+        detail: data
+      });
+
+      this.el.dispatchEvent(event);
+    }
+
+    /**
      * Назначение слушателей событий
      */
     _initEvents() {
@@ -73,9 +84,9 @@
      */
     _onSubmit(event) {
       event.preventDefault();
-      let data = this.getData();
-      if (data !== null) this.onSubmit(data);
-      this.form.reset();
+      this.trigger('add', this.getData());
+
+      event.target.reset();
 
     }
 

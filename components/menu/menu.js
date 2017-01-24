@@ -13,21 +13,38 @@
 		 * @constructor
 		 * @param  {Object} opts
 		 */
-    constructor({el, data}) {
+    constructor({el, data = {}}) {
       this.el = el;
       this.data = data;
       this.tmpl = tmpl;
       this._onClick = this._onClick.bind(this);
 
-      if (data != undefined) this.render();
+      if ('items' in data) this.render();
       this._initEvents();
     }
     /**
      * Отрисовка меню
      */
     render() {
+
       this.el.innerHTML = this.tmpl(this.data);
     }
+
+    /**
+		 * записывает данные
+		 * @param  {Object} itemData
+		 */
+		setData (data) {
+			this.data = data;
+		}
+
+    /**
+		 * возвращает данные
+		 * @param  {Object} itemData
+		 */
+		getData () {
+			return this.data;
+		}
 
     /**
 		 * Удаляем пункт меню из данных
@@ -49,19 +66,11 @@
 		 * @param  {Object} itemData
 		 */
 		addItem (itemData) {
+      if (!this.data.items) this.data.items = [];
 			this.data.items.push(itemData);
 
 			this.render();
 			console.log('added', itemData);
-		}
-
-
-		/**
-		 * присвоение данных
-		 * @param  {Object} itemData
-		 */
-		setData (data) {
-			this.data = data;
 		}
 
     /**
