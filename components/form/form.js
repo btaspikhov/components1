@@ -1,5 +1,9 @@
 (function() {
   'use strict';
+
+  //import
+  let tmpl = window.formTmpl;
+
   /**
    * @class Form
    * Компонента "Форма"
@@ -12,6 +16,7 @@
     constructor({el, onSubmit}) {
       this.el = el;
       this.onSubmit = onSubmit;
+      this.tmpl = tmpl;
 
       this.render();
       this.form = this.el.querySelector('.form');
@@ -22,16 +27,17 @@
      * Отрисовка формы
      */
     render() {
-      this.el.innerHTML = `
-      <form class="form" action="">
-        <input class="form__input"  type="text" name="href" placeholder="href" value="">
-        <input class="form__input" type="text" name="anchor"
-        placeholder="anchor" value="">
-        <input class="form__input" type="text" name="details"
-        placeholder="details" value="">
-        <input class="form__submit" type="submit" value="Submit">
-      </form>
-			`;
+      this.el.innerHTML = this.tmpl();
+      // `
+      // <form class="form" action="">
+      //   <input class="form__input"  type="text" name="href" placeholder="href" value="">
+      //   <input class="form__input" type="text" name="anchor"
+      //   placeholder="anchor" value="">
+      //   <input class="form__input" type="text" name="details"
+      //   placeholder="details" value="">
+      //   <input class="form__submit" type="submit" value="Submit">
+      // </form>
+			// `;
     }
 
     /**
@@ -46,11 +52,12 @@
      * Получение данных формы
      */
     getData() {
-      return {
-        href: this.getValueByName('href'),
-        anchor: this.getValueByName('anchor'),
-        details: this.getValueByName('details')
-      };
+      let href = this.getValueByName('href');
+      let anchor = this.getValueByName('anchor');
+      let details = this.getValueByName('details');
+      let isEmpty = !(href || anchor || details);
+
+      return (isEmpty) ? null : { href, anchor, details };
     }
 
     /**
@@ -67,7 +74,7 @@
     _onSubmit(event) {
       event.preventDefault();
       let data = this.getData();
-      this.onSubmit(data);
+      if (data !== null) this.onSubmit(data);
       this.form.reset();
 
     }

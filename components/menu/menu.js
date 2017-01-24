@@ -19,39 +19,14 @@
       this.tmpl = tmpl;
       this._onClick = this._onClick.bind(this);
 
-      this.render();
+      if (data != undefined) this.render();
       this._initEvents();
     }
     /**
      * Отрисовка меню
      */
     render() {
-
       this.el.innerHTML = this.tmpl(this.data);
-      /*
-      function getMenuItems (items) {
-				return items.map((item, index) => {
-					return `<li class="menu__item" data-index="${index}">
-										<a class="" href="${item.href}" data-action="pick">
-											${item.anchor}
-										</a>
-										<details data-action="showDetails">${item.details}</details>
-										<i class="close" data-action="remove"></i>
-									</li>`;
-				}).join('');
-			}
-
-			this.el.innerHTML = `
-					<div class="menu">
-						<span class="menu__title">
-							${this.data.title}
-						</span>
-						<ul class="menu__list">
-							${getMenuItems(this.data.items)}
-						</ul>
-					</div>
-			`;
-      */
     }
 
     /**
@@ -78,6 +53,15 @@
 
 			this.render();
 			console.log('added', itemData);
+		}
+
+
+		/**
+		 * присвоение данных
+		 * @param  {Object} itemData
+		 */
+		setData (data) {
+			this.data = data;
 		}
 
     /**
