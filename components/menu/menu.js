@@ -1,5 +1,3 @@
-(function() {
-  'use strict';
 
   //import
   let tmpl = window.menuTmpl;
@@ -137,8 +135,4 @@
   }
 
 
-  //export
-
-  window.Menu = Menu;
-
-})();
+  export {Menu};

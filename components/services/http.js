@@ -1,5 +1,3 @@
-(function() {
-  'use strict';
 
   const httpService = {
 
@@ -49,6 +47,4 @@
     }
   };
 
-  //export
-  window.httpService = httpService;
-})();
+  export {httpService};

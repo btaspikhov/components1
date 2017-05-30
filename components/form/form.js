@@ -1,5 +1,3 @@
-(function() {
-  'use strict';
 
   //import
   let tmpl = window.formTmpl;
@@ -92,7 +90,4 @@
 
   }
 
-  //export
-
-  window.Form = Form;
-})();
+  export {Form};

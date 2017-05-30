@@ -1,11 +1,8 @@
-(function() {
-  'use strict';
-
   //import
-  let Menu = window.Menu;
-  let Form = window.Form;
-  let Model = window.Model;
-  let httpService = window.httpService;
+  import {Menu} from '../menu/menu';
+  import {Form} from '../form/form';
+  import {Model} from '../model/model';
+  import {httpService} from '../services/http';
 
   let menuModel = new Model({
   	resource: 'https://componentsEd.firebaseio.com/menu/-KbF0gr0YWX7qmv3olV1.json',
@@ -62,5 +59,3 @@
   });
 
   menuModel.fetch();
-
-})();
